@@ -1,4 +1,4 @@
-# cse2231-portfolio-ruoxi-zhang
+# cse2231-portfolio-Mini Statistics Toolkit
 Portfolio Project for CSE 2231 – Mini Statistics Toolkit (Part 2: Proof of Concept)
 
 # Mini Statistics Toolkit (Proof of Concept)
