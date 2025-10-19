@@ -9,3 +9,5 @@ can be compiled and run successfully with OSU Components.
 The kernel supports adding and removing data points, 
 and the secondary method `mean()` computes the average value.
 
+Submitted via PR on 2025-10-19
+
