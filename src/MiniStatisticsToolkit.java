@@ -1,51 +1,59 @@
-import components.sequence.Sequence;
-import components.sequence.Sequence1L;
-
 /**
- * Implementation of a simple statistics toolkit.
- * Demonstrates core component design.
- * 
+ * Enhanced interface for a one-dimensional numeric series.
+ * Adds common statistics operations layered on the kernel.
+ *
+ * All methods must be implementable using only the kernel operations
+ * and {@code Standard} methods.
+ *
+ * Unless otherwise stated, methods do not modify {@code this}.
+ *
  * @author Ruoxi Zhang
  */
-public class MiniStatisticsToolkit implements MiniStatisticsToolkitKernel {
-
-    private Sequence<Double> data;
+public interface MiniStatisticsToolkit extends MiniStatisticsToolkitKernel {
 
     /**
-     * Default constructor.
+     * Returns the arithmetic mean of all values.
+     *
+     * @return mean value over all stored values
+     * @requires length() > 0
+     * @ensures this = #this
      */
-    public MiniStatisticsToolkit() {
-        data = new Sequence1L<>();
-    }
-
-    @Override
-    public void addData(double value) {
-        data.add(data.length(), value);
-    }
-
-    @Override
-    public void removeLast() {
-        if (data.length() > 0) {
-            data.remove(data.length() - 1);
-        }
-    }
-
-    @Override
-    public int length() {
-        return data.length();
-    }
+    double mean();
 
     /**
-     * Secondary method — computes the mean of all data points.
-     * 
-     * @return mean value
+     * Returns the minimum value.
+     *
+     * @return minimum value among all stored values
+     * @requires length() > 0
+     * @ensures this = #this
      */
-    public double mean() {
-        double sum = 0;
-        for (int i = 0; i < data.length(); i++) {
-            sum += data.entry(i);
-        }
-        return (data.length() > 0) ? sum / data.length() : 0.0;
-    }
+    double min();
+
+    /**
+     * Returns the maximum value.
+     *
+     * @return maximum value among all stored values
+     * @requires length() > 0
+     * @ensures this = #this
+     */
+    double max();
+
+    /**
+     * Returns the (population) standard deviation of all values.
+     *
+     * @return population standard deviation of all stored values
+     * @requires length() > 0
+     * @ensures this = #this
+     */
+    double stddev();
+
+    /**
+     * Returns the simple moving average over the most recent {@code k} values.
+     *
+     * @param k window size
+     * @return mean of the last {@code k} values
+     * @requires 1 <= k && k <= length()
+     * @ensures this = #this
+     */
+    double movingAverage(int k);
 }
-

@@ -21,5 +21,15 @@ the following form: YYYY.0M.0D.
 - Created `MiniStatisticsToolkitTest.java` to demonstrate component behavior.
 - Linked OSU `components.jar` successfully.
 
+
+## [Component Interfaces] - 2025-10-23
+### Added
+- Completed full kernel and enhanced interfaces for **MiniStatisticsToolkit**:
+  - Added `MiniStatisticsToolkitKernel.java` with `Entries` iterator and formal @requires/@ensures annotations.
+  - Added `MiniStatisticsToolkit.java` (enhanced interface) defining `mean`, `min`, `max`, `stddev`, and `movingAverage`.
+- Updated JavaDoc formatting to design-by-contract style.
+- Verified interface structure compiles correctly with no package declaration in default `src` folder.
+
 ### Notes
-- Additional secondary methods and documentation will be added in Part 3.
+- Implementation class `MiniStatisticsToolkit1L` will be completed in Part 4.
+- No behavioral code changes yet; focus of this release is interface design and documentation quality.
