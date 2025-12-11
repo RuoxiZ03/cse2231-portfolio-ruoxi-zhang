@@ -1,22 +1,14 @@
 /**
- * Kernel implementation for MiniStatisticsToolkit using a resizable
- * double[] array as the internal representation.
+ * Kernel implementation for {@code MiniStatisticsToolkit} using a resizable
+ * {@code double[]} array as the internal representation.
  *
- * Representation:
- *   double[] rep
- *   int size
+ * @convention rep != null
+ *             and 0 <= size <= rep.length
+ *             and the logical sequence is rep[0..size - 1]
+ * @correspondence length = size
+ *                 and this[i] = rep[i] for 0 <= i < size
  *
- * Convention:
- *   rep is not null
- *   0 <= size <= rep.length
- *   the logical sequence is rep[0..size-1]
- *
- * Correspondence:
- *   this models a sequence of double values
- *   length = size
- *   this[i] = rep[i]
- *
- * author: Ruoxi Zhang
+ * @author Ruoxi Zhang
  */
 public final class MiniStatisticsToolkit1L extends MiniStatisticsToolkitSecondary {
 
@@ -30,15 +22,22 @@ public final class MiniStatisticsToolkit1L extends MiniStatisticsToolkitSecondar
     private int size;
 
     /**
-     * Constructor: initializes this as an empty toolkit.
+     * Creates a fresh, empty representation.
      */
-    public MiniStatisticsToolkit1L() {
+    private void createNewRep() {
         this.rep = new double[DEFAULT_CAPACITY];
         this.size = 0;
     }
 
     /**
-     * Ensures rep has capacity for at least minCapacity.
+     * Constructor: initializes this as an empty toolkit.
+     */
+    public MiniStatisticsToolkit1L() {
+        this.createNewRep();
+    }
+
+    /**
+     * Ensures {@code rep} has capacity for at least {@code minCapacity}.
      *
      * @param minCapacity minimum required capacity
      */
@@ -72,7 +71,7 @@ public final class MiniStatisticsToolkit1L extends MiniStatisticsToolkitSecondar
     }
 
     /**
-     * Iterator over rep[0..size-1].
+     * Iterator over {@code rep[0..size-1]}.
      */
     private final class ArrayEntries implements MiniStatisticsToolkitKernel.Entries {
 
@@ -105,7 +104,7 @@ public final class MiniStatisticsToolkit1L extends MiniStatisticsToolkitSecondar
 
     @Override
     public void clear() {
-        this.size = 0;
+        this.createNewRep();
     }
 
     @Override
@@ -125,7 +124,6 @@ public final class MiniStatisticsToolkit1L extends MiniStatisticsToolkitSecondar
         this.rep = s.rep;
         this.size = s.size;
 
-        s.rep = new double[DEFAULT_CAPACITY];
-        s.size = 0;
+        s.createNewRep();
     }
 }

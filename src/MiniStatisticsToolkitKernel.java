@@ -5,11 +5,11 @@ import components.standard.Standard;
  * Provides the minimal operations needed to model the data type.
  *
  * <p>Model: a finite sequence of {@code double} values in insertion order.</p>
- * 
+ *
  * <p>Note: This kernel exposes only minimal capabilities; statistics and other
  * utilities are layered in the enhanced interface.</p>
  *
- * author Ruoxi Zhang
+ * @author Ruoxi Zhang
  */
 public interface MiniStatisticsToolkitKernel extends Standard<MiniStatisticsToolkit>{
 

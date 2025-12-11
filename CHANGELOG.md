@@ -6,6 +6,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [Component Finishing Touches] - 2025.12.10
+
+### Added
+- Designed full JUnit test suites for the **MiniStatisticsToolkit** component:
+  - `MiniStatisticsToolkit1LTest.java` covering constructor, `addData`, `removeLast`,
+    `length`, `clear`, `newInstance`, `transferFrom`, and iterator behavior for the
+    concrete kernel implementation.
+  - `MiniStatisticsToolkitTest.java` covering enhanced/secondary behavior including
+    `mean`, `min`, `max`, `stddev`, `movingAverage`, `toString`, `equals`, and
+    `hashCode`.
+- Implemented two qualitatively different use cases for the component:
+  - `MiniStatisticsToolkitCliDemo.java`: a command-line statistics calculator that
+    reads values from standard input and prints summary statistics.
+  - `MiniStatisticsToolkitGuiDemo.java`: a Swing-based GUI that lets users enter a
+    sequence of numbers, choose a moving-average window, and view computed
+    statistics.
+
+### Updated
+- Refined documentation in `MiniStatisticsToolkit1L.java` to use Javadoc
+  `@convention` and `@correspondence` tags for the representation invariant and
+  abstract correspondence.
+- Performed general polish across the component codebase (naming, Javadoc,
+  formatting) to better align with OSU CSE component design discipline.
+
+
+
 ## [Kernel Implementation] - 2025-11-20
 ### Added
 - Implemented `MiniStatisticsToolkit1L.java`:
@@ -14,6 +40,8 @@ the following form: YYYY.0M.0D.
   - Added internal iterator class `ArrayEntries` for read-only traversal using the `Entries` interface.
   - Implemented `Standard` methods (`clear`, `newInstance`, and `transferFrom`) consistent with component discipline.
   - Included detailed representation, convention, and correspondence specifications at the top of the file.
+
+
 
 ## [Component Abstract Class] - 2025-11-06
 ### Added
@@ -41,6 +69,7 @@ the following form: YYYY.0M.0D.
 ### Notes
 - Implementation class `MiniStatisticsToolkit1L` will be completed in Part 4.
 - No behavioral code changes yet; focus of this release is interface design and documentation quality.
+
 
 
 ## [Proof of Concept] - 2025-10-08
